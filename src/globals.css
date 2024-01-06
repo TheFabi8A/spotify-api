@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.box:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: url(https://assets.codepen.io/13471/sparkles.gif);
+  background-color: transparent;
+  background-position: 50% 50%;
+  background-size: 100%;
+  background-blend-mode: overlay;
+  mix-blend-mode: color-dodge;
+  opacity: 1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  outline: 1px solid transparent;
+  transform-style: preserve-3d;
+}
+
+.vinyl-jacket {
+  position: relative;
+  border-radius: 1px;
+  perspective: 750px;
+  transform-style: preserve-3d;
+  background-size: cover;
+  box-shadow: inset 0 1px 1px rgba(#fff, 0.6), inset 1px 0 1px rgba(#000, 0.3),
+    inset 0 -1px 1px rgba(#000, 0.6);
+  cursor: pointer;
+
+  & > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    -webkit-mask-image: linear-gradient(transparent 80%, rgba(#fff, 0.1));
+    mask-image: linear-gradient(transparent 80%, rgba(#fff, 0.1));
+    pointer-events: none;
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+}
+
+@keyframes open-close {
+  0% {
+    transform: rotateY(0deg);
+  }
+  10% {
+    transform: rotateY(-110deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+.vinyl-wrapper {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  top: 0;
+  left: 16%;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(-8px);
+  filter: drop-shadow(0 0 1px rgba(#000, 0.6));
+  transition: left 0.4s;
+
+  .vinyl-jacket.on-play > & {
+    left: 62%;
+  }
+}
+
+.vinyl {
+  box-shadow: inset 0 0 1px 1px #000, inset 0 0 0 2px rgba(110, 100, 101, 0.6);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: #21201e;
+  background-image: conic-gradient(
+      from 45deg,
+      rgba(255, 255, 255, 0.25),
+      transparent 6.25% 43.75%,
+      rgba(255, 255, 255, 0.25) 50%,
+      transparent 56.25% 93.75%,
+      rgba(255, 255, 255, 0.25)
+    ),
+    radial-gradient(
+      farthest-side,
+      transparent 0 calc(100% - 1px),
+      #342d2b 95.23% 100%
+    ),
+    radial-gradient(farthest-side, transparent 0 95.23%, #342d2b 95.23% 100%),
+    radial-gradient(
+      farthest-side,
+      rgba(255, 255, 255, 0.06) 0 40%,
+      rgba(0, 0, 0, 0.2) 40% calc(40% + 1px),
+      rgba(0, 0, 0, 0.12) calc(40% + 1px) 48%,
+      #282826 48% calc(48% + 1px),
+      transparent calc(48% + 1px) 100%
+    ),
+    radial-gradient(
+      farthest-side,
+      transparent 63.8%,
+      rgba(255, 255, 255, 0.03) 63.8% calc(63.8% + 1px),
+      transparent calc(63.8% + 1px) 81.9%,
+      rgba(255, 255, 255, 0.03) 81.9% calc(81.9% + 1px),
+      transparent 0
+    ),
+    repeating-radial-gradient(
+      farthest-side,
+      rgba(255, 255, 255, 0.005) 0 1px,
+      transparent 1px 2px
+    ),
+    repeating-radial-gradient(
+      farthest-side,
+      rgba(255, 255, 255, 0.005) 0 1px,
+      transparent 1px 5px
+    ),
+    repeating-radial-gradient(farthest-side, #1e1d1c, #21201e 12.5%);
+  -webkit-mask-image: radial-gradient(transparent 2.4%, #fff 2.4%);
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    border: 1px solid #3b3b38;
+    border-radius: 50%;
+    width: 33.33%;
+    height: 33.33%;
+    background-image: url("https://assets.codepen.io/4175254/ymo.jpg");
+    background-size: cover;
+    image-rendering: crisp-edges;
+  }
+}
