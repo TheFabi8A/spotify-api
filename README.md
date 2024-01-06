@@ -2,7 +2,7 @@
 
 [![Deploy on Vercel](https://img.shields.io/badge/spotify_song_tracker-fff?style=for-the-badge&logo=vercel&logoColor=white&labelColor=000)](https://spotify-api-tracker.vercel.app/)
 
-https://github.com/TheFabi8A/spotify-api/assets/104035823/b165f007-26f1-4462-89f0-1e58656f8db1
+<https://github.com/TheFabi8A/spotify-api/assets/104035823/b165f007-26f1-4462-89f0-1e58656f8db1>
 
 ## If you want to use this project
 
@@ -23,6 +23,10 @@ https://github.com/TheFabi8A/spotify-api/assets/104035823/b165f007-26f1-4462-89f
 - Using the Spotify API, the user grants permissions to view the current song they are listening to and its playback state.
 
 - This project is dedicated to streamers who are looking for a new design for the song they are listening to on Spotify.
+
+- To use this, in the OBS Studio program, create a new browser source and place the vercel link in the url.
+
+- You will have to interact with it to be able to log in to Spotify.
 
 ## Built with
 
