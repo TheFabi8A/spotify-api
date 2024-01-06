@@ -1,5 +1,5 @@
 import { SpotifyIcon } from "./components/Icons";
-import useFetch from "./components/useFetch";
+import { useFetch } from "./hooks";
 
 function App() {
   const { accessToken, currentSongData, handleSpotifyAuth, isPlaying } =
@@ -41,8 +41,8 @@ function App() {
                 <h4>
                   <span className="font-bold">
                     {currentSongData.item.artists.length > 1
-                      ? "Artistas:"
-                      : "Artista:"}{" "}
+                      ? "Artists:"
+                      : "Artist:"}{" "}
                   </span>
                   {currentSongData.item.artists &&
                     currentSongData.item.artists.map((artist, index) => {
@@ -53,7 +53,7 @@ function App() {
                         <span key={id}>
                           {currentSongData.item.artists.length - index === 1 &&
                           currentSongData.item.artists.length > 1
-                            ? " y "
+                            ? " and "
                             : ""}
                           <a
                             className="hover:underline font-black"
@@ -72,7 +72,7 @@ function App() {
                     })}
                 </h4>
                 <h4>
-                  <span className="font-bold">Álbum: </span>
+                  <span className="font-bold">Album: </span>
                   {currentSongData.item.album.external_urls.spotify && (
                     <a
                       className="hover:underline font-black"
