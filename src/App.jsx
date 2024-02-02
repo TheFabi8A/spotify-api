@@ -2,7 +2,7 @@ import { SpotifyIcon } from "./components/Icons";
 import { useFetch } from "./hooks";
 
 function App() {
-  const { accessToken, currentSongData, handleSpotifyAuth, isPlaying } =
+  const { accessToken, currentSongData, handleSpotifyAuth, isPlaying, artistData } =
     useFetch();
 
   if (currentSongData && currentSongData.item === null) {
@@ -21,11 +21,11 @@ function App() {
       )}
       {currentSongData && (
         <div>
-          <div className={`vinyl-jacket w-72 h-72 ${isPlaying && "on-play"}`}>
+          <div className={`vinyl-jacket w-80 h-80 ${isPlaying && "on-play"}`}>
             <div
-              className={`bg-black/50 backdrop-blur-sm overflow-hidden absolute w-full h-full left-0 top-0 p-4`}>
-              <div className="relative p-4">
-                <h4 className="text-white font-black text-xl">
+              className={`bg-black absolute w-full h-full left-0 top-0 p-4`}>
+              <div className="relative mb-4">
+                <h1 className="text-white font-black text-4xl line-clamp-3">
                   {currentSongData.item.external_urls.spotify && (
                     <a
                       className="hover:underline"
@@ -35,14 +35,16 @@ function App() {
                       {currentSongData.item.name}
                     </a>
                   )}
-                </h4>
+                </h1>
               </div>
-              <div className="bg-white/50 p-4 backdrop-blur-2xl">
-                <h4>
-                  <span className="font-bold">
-                    {currentSongData.item.artists.length > 1
-                      ? "Artists:"
-                      : "Artist:"}{" "}
+              <div className="bg-white p-4">
+                <h2 className="text-2xl line-clamp-2">
+                  <span className="underline decoration-black tracking-wider" style={{
+                    fontWeight: "900"
+                  }}>
+                    {/* {currentSongData.item.artists.length > 1
+                      ? "Artistas:"
+                      : "Artista:"}{" "} */}
                   </span>
                   {currentSongData.item.artists &&
                     currentSongData.item.artists.map((artist, index) => {
@@ -70,19 +72,21 @@ function App() {
                         </span>
                       );
                     })}
-                </h4>
-                <h4>
-                  <span className="font-bold">Album: </span>
+                </h2>
+                <h2 className="text-2xl line-clamp-2 font-normal">
+                  {/* <span className="underline decoration-black tracking-wider" style={{
+                    fontWeight: "900"
+                  }}>Album: </span> */}
                   {currentSongData.item.album.external_urls.spotify && (
                     <a
-                      className="hover:underline font-black"
+                      className="hover:underline"
                       href={currentSongData.item.album.external_urls.spotify}
                       target="_blank"
                       rel="noopener noreferrer">
                       {currentSongData.item.album.name}
                     </a>
                   )}
-                </h4>
+                </h2>
               </div>
             </div>
             <img
@@ -95,10 +99,12 @@ function App() {
             />
             <div className="vinyl-wrapper">
               <div className={`vinyl box ${isPlaying && "animate-spin"}`}>
-                <img
-                  src={currentSongData.item.album.images[1].url}
+                {artistData && (
+                  <img
+                  src={artistData.images[2].url}
                   alt="cover"
                 />
+                )}
               </div>
             </div>
           </div>

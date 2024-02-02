@@ -5,6 +5,7 @@ export default function useFetch() {
   const [currentSongData, setCurrentSongData] = useState(null);
   const [plabackStateData, setPlaybackStateData] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [artistData, setArtistData] = useState(null);
 
   const { handleSpotifyAuth } = useSpotifyAuth();
 
@@ -67,11 +68,35 @@ export default function useFetch() {
     }
   });
 
+  useEffect(() => {
+
+    const headers = new Headers()
+    headers.append('Authorization', `Bearer ${accessToken}`)
+
+    if (accessToken && currentSongData) {
+      const fetchArtist = async () => {
+        try {
+          const response = await fetch(`https://api.spotify.com/v1/artists/${currentSongData.item.artists[0].id}`, {
+            method: 'GET',
+            headers
+          })
+          const data = await response.json()
+          setArtistData(data)
+        } catch (error) {
+          console.error(error)
+        }
+      }
+
+      fetchArtist()
+    }
+  }, [currentSongData, accessToken]);
+
   return {
     accessToken,
     currentSongData,
     handleSpotifyAuth,
     isPlaying,
     plabackStateData,
+    artistData
   };
 }
