@@ -10,15 +10,17 @@ function App() {
 
   return (
     <ContextProvider>
-      {!accessToken && (
-        <button
-          className="overflow-hidden text-lg tracking-wider box font-bold bg-[#1ed760] bg-clip-padding border-[#1ed760] border-b-2 border-r-2 border-dashed transition-all duration-300 rounded-md text-white flex items-center gap-3 p-4 h-max hover:shadow-xl hover:-translate-y-2"
-          onClick={handleSpotifyAuth}>
-          Authenticate with Spotify
-          <SpotifyIcon className="w-10 h-10" />
-        </button>
-      )}
-      {accessToken && <BlurredPlayer />}
+      <div className="grid place-items-center h-screen">
+        {!accessToken && (
+          <button
+            className="overflow-hidden text-lg tracking-wider box font-bold bg-[#1ed760] bg-clip-padding border-[#1ed760] border-b-2 border-r-2 border-dashed transition-all duration-300 rounded-md text-white flex items-center gap-3 p-4 h-max hover:shadow-xl hover:-translate-y-2"
+            onClick={handleSpotifyAuth}>
+            Iniciar sesión con Spotify
+            <SpotifyIcon className="w-10 h-10" />
+          </button>
+        )}
+        {accessToken && <BlurredPlayer />}
+      </div>
     </ContextProvider>
   );
 }
