@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import "./VinylPlayer.css";
+import { Context } from "../../Context";
 
 export default function VinylPlayer() {
+  const { player, artist } = useContext(Context);
+
   return (
     <div className={`vinyl-jacket w-80 h-80 ${player.is_playing && "on-play"}`}>
       <div className={`bg-black absolute w-full h-full left-0 top-0 p-4`}>
@@ -71,7 +75,7 @@ export default function VinylPlayer() {
       />
       <div className="vinyl-wrapper">
         <div className={`vinyl ${player.is_playing && "animate-spin"}`}>
-          {artistData && <img src={artistData.images[2].url} alt="cover" />}
+          {artist && <img src={artist.images[2].url} alt="cover" />}
         </div>
       </div>
     </div>

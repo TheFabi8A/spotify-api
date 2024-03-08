@@ -7,6 +7,8 @@ import { Analytics } from "@vercel/analytics/react";
 
 const accessToken = localStorage.getItem("spotifyAccessToken");
 
+import ContextProvider from "./Context";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -14,20 +16,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route
           path="/"
           element={
-            <>
-              {accessToken && (
-                <button
-                  className="z-50 bg-black text-white p-2 fixed top-0 right-0 m-4 rounded-md"
-                  onClick={() => {
-                    localStorage.removeItem("spotifyAccessToken");
-                    window.location.reload();
-                  }}>
-                  Cerrar sesión
-                </button>
-              )}
+            <ContextProvider>
               <App />
               <Analytics />
-            </>
+            </ContextProvider>
           }
         />
       </Routes>

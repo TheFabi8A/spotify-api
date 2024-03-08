@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import Artist from "./Artist";
-import "./BlurredPlayer.css";
+import "./AnimePlayer.css";
 import { Context } from "../../Context";
 
-export default function BlurredPlayer() {
+export default function AnimePlayer() {
   const { player } = useContext(Context);
   return (
     <div className="relative grid place-items-center w-max">
