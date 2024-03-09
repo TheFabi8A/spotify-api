@@ -1,5 +1,6 @@
 body {
   font-family: "Montserrat", sans-serif;
+  transform-style: preserve-3d;
 }
 
 .font-normal {
@@ -114,16 +115,12 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(0);
-    border: 1px solid #3b3b38;
     border-radius: 50%;
     width: 33.33%;
     height: 33.33%;
-    background-image: url("https://assets.codepen.io/4175254/ymo.jpg");
-    background-size: cover;
-    image-rendering: crisp-edges;
   }
 
-  & ::after {
+  &::after {
     content: "";
     position: absolute;
     width: 100%;

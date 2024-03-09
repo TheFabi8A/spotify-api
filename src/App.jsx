@@ -12,8 +12,6 @@ function App() {
 
   const { setPlayerTheme, PlayerTheme } = useContext(Context);
 
-  console.log(PlayerTheme);
-
   return (
     <div className="grid place-items-center h-screen">
       {accessToken && (

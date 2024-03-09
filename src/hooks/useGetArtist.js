@@ -11,7 +11,7 @@ export function useGetArtist(spotifyArtistId) {
 
   const fetcher = (url) => fetch(url, { headers }).then((res) => res.json());
   const { data, error, isValidating } = useSWR(API_URL, fetcher, {
-    refreshInterval: 1000,
+    refreshInterval: accessToken && 1000,
   });
 
   return {
