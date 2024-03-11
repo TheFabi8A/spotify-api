@@ -13,7 +13,7 @@ export function useGetPlayBackState () {
   }
 
   const fetcher = (url: string) => fetch(url, { headers }).then((res) => res.json())
-  const { data, error, isValidating } = useSWR(API_URL, fetcher, accessToken ? { refreshInterval: 10000 } : {})
+  const { data, error, isValidating } = useSWR(API_URL, fetcher, accessToken ? { refreshInterval: 1000 } : {})
 
   if (data && data?.error?.status === 401) {
     handleSpotifyAuth()
