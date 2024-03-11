@@ -8,7 +8,6 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
@@ -32,7 +31,6 @@ function App () {
   const { handleSpotifyAuth } = useSpotifyAuth()
 
   const { user } = useContext(Context)
-  console.log(user)
 
   const { setPlayerTheme, PlayerTheme } = useContext(Context)
 

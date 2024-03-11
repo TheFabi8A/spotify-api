@@ -5,7 +5,6 @@ import { Context } from '@/Context'
 
 export default function VinylPlayer () {
   const { player } = useContext(Context)
-  console.log(player)
   const { artist } = useGetArtist(player?.item?.album?.artists[0]?.id)
 
   if (!player) return null
