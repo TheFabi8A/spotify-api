@@ -1,10 +1,13 @@
-import { useContext } from "react";
-import Artist from "./Artist";
-import "./AnimePlayer.css";
-import { Context } from "../../Context";
+import React, { useContext } from 'react'
+import Artist from './Artist'
+import './AnimePlayer.css'
+import { Context } from '@/Context'
 
-export default function AnimePlayer() {
-  const { player } = useContext(Context);
+export default function AnimePlayer () {
+  const { player } = useContext(Context)
+
+  if (!player) return null
+
   return (
     <div className="relative grid place-items-center w-max">
       <Artist />
@@ -37,5 +40,5 @@ export default function AnimePlayer() {
         />
       </div>
     </div>
-  );
+  )
 }

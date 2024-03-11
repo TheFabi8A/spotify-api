@@ -1,1 +1,1 @@
-export { default as SpotifyIcon } from './SpotifyIcon';
+export { default as SpotifyIcon } from './SpotifyIcon'

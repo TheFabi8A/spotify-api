@@ -1,8 +1,13 @@
-import { useContext } from "react";
-import { Context } from "../../Context";
+import React, { useContext } from 'react'
+import { Context } from '@/Context'
+import { useGetArtist } from '@/hooks/useGetArtist'
 
-export default function Artist() {
-  const { artist } = useContext(Context);
+export default function Artist () {
+  const { player } = useContext(Context)
+  const { artist } = useGetArtist(player?.item?.album?.artists[0]?.id)
+
+  if (!player) return null
+
   return (
     <svg
       width="96"
@@ -16,7 +21,7 @@ export default function Artist() {
             <img
               className="w-20 absolute h-20 rounded-full"
               src={artist.images[1].url}
-              alt={name}
+              alt={artist.name}
               aria-hidden="true"
             />
           )}
@@ -28,5 +33,5 @@ export default function Artist() {
         </div>
       </foreignObject>
     </svg>
-  );
+  )
 }
