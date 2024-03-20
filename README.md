@@ -2,7 +2,7 @@
 
 [![Deploy on Vercel](https://img.shields.io/badge/spotify_song_tracker-fff?style=for-the-badge&logo=vercel&logoColor=white&labelColor=000)](https://spotify-api-tracker.vercel.app/)
 
-<https://github.com/TheFabi8A/spotify-api/assets/104035823/b165f007-26f1-4462-89f0-1e58656f8db1>
+<https://github.com/TheFabi8A/spotify-api/assets/104035823/4e1cf886-7867-4c3d-b178-e430a219dfdc>
 
 ## If you want to use this project
 
